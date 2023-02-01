@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="partialArea">
+    @*<div class="row">
+            <div class="col-2">
+                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>Credit Card Number</strong></span>
+                <br />
+                <input type="text" />
+            </div>
+            <div class="col-2">
+                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>Month</strong></span>
+                <br />
+                <input type="text" />
+            </div>
+            <div class="col-2">
+                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>Year</strong></span>
+                <br />
+                <input type="text" />
+            </div>
+            <div class="col-2">
+                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>CVV</strong></span>
+                <br />
+                <input type="text" />
+            </div>
+            <div class="col-2">
+                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>3D Secure</strong></span>
+                <br />
+                <input type="text" />
+            </div>
+            <div class="col-2 my-auto" align="center">
+                <button class="btn btn-success m-auto" onclick="shaRequest()">Send SHA Request</button>
+            </div>
+        </div>
+        <br />*@
+
+    <div class="row w-25 m-auto" style="border: 2px solid gray; border-radius: 25px;">
+        <div class="col-12">
+            <div class="card-body" style="display: block; border: 1px dashed gray; border-radius: 25px; margin: 20px;">
+                <div class="row">
+                    <div class="col-12">
+                        <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-left: 20px;">Credit Card Number</span>
+                        <input type="text" id="asdasd" class="form-control" placeholder="1010 2020 3030 4040" style="border-radius: 25px;">
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-4">
+                        <span style="color: #8F8F95; font-size: 1em; font-weight: 500; margin-left: 20px;">Month</span>
+                        <input type="text" id="informationPipeOD" class="form-control" placeholder="11" style="border-radius: 25px;">
+                    </div>
+
+                    <div class="col-4">
+                        <span style="color: #8F8F95; font-size: 1em; font-weight: 500; margin-left: 20px;">Year</span>
+                        <input type="text" id="informationPipeThickness" class="form-control" placeholder="2023" style="border-radius: 25px;">
+                    </div>
+
+                    <div class="col-4">
+                        <span style="color: #8F8F95; font-size: 1em; font-weight: 500; margin-left: 20px;">CVV</span>
+                        <input type="text" id="informationPipeThickness" class="form-control" placeholder="666" style="border-radius: 25px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-success" onclick="shaRequest()" style="margin: 20px; border-radius: 25px;">Send SHA Request</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+@section Scripts {
+    <script src="~/js/index.js"></script>
+    <script src="~/js/creditCard.js"></script>
+}
