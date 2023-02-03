@@ -2,6 +2,195 @@
 
 });
 
+
+
+
+
+// Test Credit Card with All Payment Methods
+function test(method, secureType) {
+    // Get Credit Card Number, Month, Year from User to variable
+    var creditCardNumber = $("#creditCardNumber").val();
+    var creditCardMonth = $("#creditCardMonth").val();
+    var creditCardYear = $("#creditCardYear").val();
+
+    // Ajax Post Destination Url
+    var destinationUrl = "https://test-dmz.param.com.tr/turkpos.ws/service_turkpos_test.asmx";
+
+    switch (method) {
+        case "payment":
+            if (secureType == "3DPay") {
+                var orderID = makeOrderID(20);
+                var hashRequest = `<?xml version=\"1.0\" encoding=\"utf-8\"?> <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> <soap:Body>\r\n<SHA2B64 xmlns=\"https://turkpos.com.tr/\">\r\n<Data>107380c13d406-873b-403b-9c09-a5766840d98c1100,00100,00${orderID}https://localhost:44345/Home/PaymentFailhttps://localhost:44345/Home/PaymentSuccess</Data>\r\n</SHA2B64>\r\n</soap:Body>\r\n</soap:Envelope>`;
+
+                $.ajax({
+                    url: '/Home/SHARequest',
+                    data: { destinationUrl: destinationUrl, requestXml: hashRequest },
+                    success: function (response) {
+                        var parseResponse = $.parseXML(response);
+                        var xmlResponse = $(parseResponse);
+                        var hash = xmlResponse.find("SHA2B64Result").text();
+
+                        var payment3DPayRequest = `<?xml version="1.0" encoding="utf-8"?>
+                    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <Pos_Odeme xmlns="https://turkpos.com.tr/"> <G> <CLIENT_CODE>10738</CLIENT_CODE> <CLIENT_USERNAME>Test</CLIENT_USERNAME> <CLIENT_PASSWORD>Test</CLIENT_PASSWORD> </G> <GUID>0c13d406-873b-403b-9c09-a5766840d98c</GUID> <KK_Sahibi>Görkem AKÇAY</KK_Sahibi> <KK_No>${creditCardNumber}</KK_No> <KK_SK_Ay>${creditCardMonth}</KK_SK_Ay> <KK_SK_Yil>${creditCardYear}</KK_SK_Yil> <KK_CVC>000</KK_CVC> <KK_Sahibi_GSM>5066011070</KK_Sahibi_GSM> <Hata_URL>https://localhost:44345/Home/PaymentFail</Hata_URL> <Basarili_URL>https://localhost:44345/Home/PaymentSuccess</Basarili_URL> <Siparis_ID>${orderID}</Siparis_ID> <Siparis_Aciklama></Siparis_Aciklama> <Taksit>1</Taksit> <Islem_Tutar>100,00</Islem_Tutar> <Toplam_Tutar>100,00</Toplam_Tutar> <Islem_Hash>${hash}</Islem_Hash> <Islem_Guvenlik_Tip>3D</Islem_Guvenlik_Tip><Islem_ID></Islem_ID> <IPAdr>127.0.0.1</IPAdr></Pos_Odeme> </soap:Body> </soap:Envelope>`;
+
+                        $.ajax({
+                            url: '/Home/SHARequest',
+                            data: { destinationUrl: destinationUrl, requestXml: payment3DPayRequest },
+                            success: function (response) {
+                                var responseModel = $.parseXML(response);
+                                var xmlResponseModel = $(responseModel);
+
+                                var sonuc = xmlResponseModel.find("Sonuc").text();
+                                if (sonuc == 1) {
+                                    var ucdURL = xmlResponseModel.find("UCD_URL").text().replace('amp;', '');
+                                    window.open(ucdURL, '_blank');
+                                }
+                                else {
+                                    var sonuc_str = xmlResponseModel.find("Sonuc_Str").text();
+                                    $("#paymentErrorArea").text(sonuc_str);
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+
+            if (secureType == "3DModel") {
+                var orderID = makeOrderID(20);
+            }
+
+            if (secureType == "NS") {
+                $("#paymentLoadSpinnerArea").children().remove();
+                $("#paymentLoadSpinnerArea").append('<img src="/loadspinner.gif" width="24" height="24"/>');
+
+                var orderID = makeOrderID(20);
+                var hashRequest = `<?xml version=\"1.0\" encoding=\"utf-8\"?> <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> <soap:Body>\r\n<SHA2B64 xmlns=\"https://turkpos.com.tr/\">\r\n<Data>107380c13d406-873b-403b-9c09-a5766840d98c1100,00100,00${orderID}https://google.comhttps://dev.param.com.tr/tr</Data>\r\n</SHA2B64>\r\n</soap:Body>\r\n</soap:Envelope>`;
+
+                $.ajax({
+                    url: '/Home/SHARequest',
+                    data: { destinationUrl: destinationUrl, requestXml: hashRequest },
+                    success: function (response) {
+                        var parseResponse = $.parseXML(response);
+                        var xmlResponse = $(parseResponse);
+                        var hash = xmlResponse.find("SHA2B64Result").text();
+
+                        var payment3DPayRequest = `<?xml version="1.0" encoding="utf-8"?>
+                    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <Pos_Odeme xmlns="https://turkpos.com.tr/"> <G> <CLIENT_CODE>10738</CLIENT_CODE> <CLIENT_USERNAME>Test</CLIENT_USERNAME> <CLIENT_PASSWORD>Test</CLIENT_PASSWORD> </G> <GUID>0c13d406-873b-403b-9c09-a5766840d98c</GUID> <KK_Sahibi>Görkem AKÇAY</KK_Sahibi> <KK_No>${creditCardNumber}</KK_No> <KK_SK_Ay>${creditCardMonth}</KK_SK_Ay> <KK_SK_Yil>${creditCardYear}</KK_SK_Yil> <KK_CVC>000</KK_CVC> <KK_Sahibi_GSM>5066011070</KK_Sahibi_GSM> <Hata_URL>https://google.com</Hata_URL> <Basarili_URL>https://dev.param.com.tr/tr</Basarili_URL> <Siparis_ID>${orderID}</Siparis_ID> <Siparis_Aciklama></Siparis_Aciklama> <Taksit>1</Taksit> <Islem_Tutar>100,00</Islem_Tutar> <Toplam_Tutar>100,00</Toplam_Tutar> <Islem_Hash>${hash}</Islem_Hash> <Islem_Guvenlik_Tip>NS</Islem_Guvenlik_Tip><Islem_ID></Islem_ID> <IPAdr>127.0.0.1</IPAdr></Pos_Odeme> </soap:Body> </soap:Envelope>`;
+
+                        $.ajax({
+                            url: '/Home/SHARequest',
+                            data: { destinationUrl: destinationUrl, requestXml: payment3DPayRequest },
+                            success: function (response) {
+                                var responseModel = $.parseXML(response);
+                                var xmlResponseModel = $(responseModel);
+                                var sonuc_str = xmlResponseModel.find("Sonuc_Str").text();
+                                var sonuc = xmlResponseModel.find("Sonuc").text();
+                                if (sonuc == 1) {
+                                    $("#paymentLoadSpinnerArea").children().remove();
+                                    $("#paymentLoadSpinnerArea").append('<i class="fa-sharp fa-solid fa-circle-check text-white"></i>');
+                                    $("#paymentErrorArea").text(sonuc_str);
+                                }
+                                else {
+                                    $("#paymentLoadSpinnerArea").children().remove();
+                                    $("#paymentLoadSpinnerArea").append('<i class="fa-solid fa-circle-xmark text-white"></i>');
+                                    $("#paymentErrorArea").text(sonuc_str);
+                                }
+                                
+                            }
+                        });
+                    }
+                });
+            }
+            break;
+
+        case "preProvision":
+            if (secureType == "3D") {
+                var orderID = makeOrderID(20);
+            }
+
+            if (secureType == "NS") {
+                var orderID = makeOrderID(20);
+            }
+            break;
+
+        case "paymentWithForeignCurrency":
+            if (secureType == "3D") {
+                var orderID = makeOrderID(20);
+            }
+
+            if (secureType == "NS") {
+                var orderID = makeOrderID(20);
+            }
+            break;
+
+        case "paymentWithCardStorage":
+            if (secureType == "3D") {
+
+            }
+
+            if (secureType == "NS") {
+
+            }
+            break;
+
+        case "preProvisionWithCardStorage":
+            if (secureType == "3D") {
+                var orderID = makeOrderID(20);
+            }
+
+            if (secureType == "NS") {
+                var orderID = makeOrderID(20);
+            }
+            break;
+
+        default:
+    }
+}
+
+
+
+function test01() {
+    $.ajax({
+        url: '/Home/PaymentSuccess'
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #region Random String Generator
 function makeOrderID(length) {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
@@ -13,6 +202,19 @@ function makeOrderID(length) {
     }
     return "gorkem_" + result;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function testCreditCard() {
     var creditCardNumber = $("#creditCardNumber").val();

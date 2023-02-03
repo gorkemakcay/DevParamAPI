@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="card-body" style="display: block; padding-left: 0px; padding-right: 0px;">
+            <div class="card-body" style="display: block; padding-left: 0px; padding-right: 0px; padding-left: 20px; font-weight: 700;">
 
                 <div class="row mb-3">
                     <div class="col-3 text-white">
@@ -71,16 +71,17 @@
                     </div>
 
                     <div class="col-3">
-                        <button class="creditCardTestButtons">3D Pay</button>
-                        <button class="creditCardTestButtons">3D Model</button>
+                        <input type="button" class="creditCardTestButtons" value="3D Pay" onclick="test('payment', '3DPay');" />
+                        <input type="button" class="creditCardTestButtons" value="3D Model" onclick="test('payment', '3DModel');" />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('payment', 'NS');" />
                     </div>
 
-                    <div class="col-3">
-                        <button class="creditCardTestButtons">NS</button>
+                    <div class="col-1" id="paymentLoadSpinnerArea">
+
                     </div>
 
-                    <div class="col-3">
-                        
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="paymentErrorArea" class="text-white" style="font-weight: 300;"></span>
                     </div>
                 </div>
 
@@ -90,15 +91,16 @@
                     </div>
 
                     <div class="col-3">
-                        <button class="creditCardTestButtons">3D</button>
+                        <input type="button" class="creditCardTestButtons" value="3D" onclick="test('preProvision', '3D');" />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('preProvision', 'NS');" />
                     </div>
 
-                    <div class="col-3">
-                        <button class="creditCardTestButtons">NS</button>
+                    <div class="col-1">
+
                     </div>
 
-                    <div class="col-3">
-
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="paymentErrorArea" class="text-white" style="font-weight: 300;"></span>
                     </div>
                 </div>
 
@@ -108,15 +110,16 @@
                     </div>
 
                     <div class="col-3">
-                        <button class="creditCardTestButtons">3D</button>
+                        <input type="button" class="creditCardTestButtons" value="3D" onclick="test('paymentWithForeignCurrency', '3D');" />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('paymentWithForeignCurrency', 'NS');" />
                     </div>
 
-                    <div class="col-3">
-                        <button class="creditCardTestButtons">NS</button>
+                    <div class="col-1">
+
                     </div>
 
-                    <div class="col-3">
-
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="paymentErrorArea" class="text-white" style="font-weight: 300;"></span>
                     </div>
                 </div>
 
@@ -126,15 +129,16 @@
                     </div>
 
                     <div class="col-3">
-                        <button class="creditCardTestButtons">3D</button>
+                        <input type="button" class="creditCardTestButtons" value="3D" onclick="test('paymentWithCardStorage', '3D');" />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('paymentWithCardStorage', 'NS');" />
                     </div>
 
-                    <div class="col-3">
-                        <button class="creditCardTestButtons">NS</button>
+                    <div class="col-1">
+
                     </div>
 
-                    <div class="col-3">
-
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="paymentErrorArea" class="text-white" style="font-weight: 300;"></span>
                     </div>
                 </div>
 
@@ -144,17 +148,21 @@
                     </div>
 
                     <div class="col-3">
-                        <button class="creditCardTestButtons">3D</button>
+                        <input type="button" class="creditCardTestButtons" value="3D" onclick="test('preProvisionWithCardStorage', '3D');" />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('preProvisionWithCardStorage', 'NS');" />
                     </div>
 
-                    <div class="col-3">
-                        <button class="creditCardTestButtons">NS</button>
+                    <div class="col-1">
+
                     </div>
 
-                    <div class="col-3">
-
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="paymentErrorArea" class="text-white" style="font-weight: 300;"></span>
                     </div>
                 </div>
+
+                <a class="navbar-brand" asp-controller="Home" asp-action="PaymentSuccess" target="_blank">success test</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="PaymentFail" target="_blank">fail test</a>
 
                 @*<div class="row text-center">
             <div class="col-12">

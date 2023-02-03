@@ -37,6 +37,18 @@ namespace DevPARAM.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        public IActionResult PaymentSuccess()
+        {
+
+            return View();
+        }
+
+        public IActionResult PaymentFail()
+        {
+
+            return View();
+        }
+
         public string SHARequest(string destinationUrl, string requestXml)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(destinationUrl);
