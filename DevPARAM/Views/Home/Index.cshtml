@@ -35,42 +35,263 @@
         </div>
         <br />*@
 
-    <div class="row w-25 m-auto" style="border: 2px solid gray; border-radius: 25px;">
-        <div class="col-12">
-            <div class="card-body" style="display: block; border: 1px dashed gray; border-radius: 25px; margin: 20px;">
+    <div class="row w-50 m-auto text-ce" style="border: 2px solid gray; border-radius: 25px; background-color: #212529;">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="card-body" style="display: block; border: 2px solid #c67610; border-radius: 25px; margin: 20px; background-color: #c67610; ">
                 <div class="row">
-                    <div class="col-12">
-                        <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-left: 20px;">Credit Card Number</span>
-                        <input type="text" id="asdasd" class="form-control" placeholder="1010 2020 3030 4040" style="border-radius: 25px;">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <span style="color: #212529; font-size: 1em; font-weight: 500; margin-left: 20px;">Credit Card Number</span>
+                        <input type="text" id="creditCardNumber" class="form-control" placeholder="1010 2020 3030 4040" style="border-radius: 25px;">
                     </div>
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col-4">
-                        <span style="color: #8F8F95; font-size: 1em; font-weight: 500; margin-left: 20px;">Month</span>
-                        <input type="text" id="informationPipeOD" class="form-control" placeholder="11" style="border-radius: 25px;">
+                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                        <span style="color: #212529; font-size: 1em; font-weight: 500; margin-left: 20px;">Month</span>
+                        <input type="text" id="creditCardMonth" class="form-control" placeholder="11" style="border-radius: 25px;">
                     </div>
 
-                    <div class="col-4">
-                        <span style="color: #8F8F95; font-size: 1em; font-weight: 500; margin-left: 20px;">Year</span>
-                        <input type="text" id="informationPipeThickness" class="form-control" placeholder="2023" style="border-radius: 25px;">
+                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                        <span style="color: #212529; font-size: 1em; font-weight: 500; margin-left: 20px;">Year</span>
+                        <input type="text" id="creditCardYear" class="form-control" placeholder="2023" style="border-radius: 25px;">
                     </div>
 
-                    <div class="col-4">
-                        <span style="color: #8F8F95; font-size: 1em; font-weight: 500; margin-left: 20px;">CVV</span>
-                        <input type="text" id="informationPipeThickness" class="form-control" placeholder="666" style="border-radius: 25px;">
+                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                        <span style="color: #212529; font-size: 1em; font-weight: 500; margin-left: 20px;">CVV</span>
+                        <input type="text" id="creditCardCVV" class="form-control" placeholder="666" style="border-radius: 25px;">
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
+            <div class="card-body" style="display: block; padding-left: 0px; padding-right: 0px;">
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">
+                        Satış
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">3D Pay</button>
+                        <button class="creditCardTestButtons">3D Model</button>
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">NS</button>
+                    </div>
+
+                    <div class="col-3">
+                        
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">
+                        Ön Provizyon
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">3D</button>
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">NS</button>
+                    </div>
+
+                    <div class="col-3">
+
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">
+                        Döviz İle Ödeme
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">3D</button>
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">NS</button>
+                    </div>
+
+                    <div class="col-3">
+
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">
+                        Kart Saklamalı Ödeme
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">3D</button>
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">NS</button>
+                    </div>
+
+                    <div class="col-3">
+
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">
+                        Saklı Kart İle Ön Provizyon
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">3D</button>
+                    </div>
+
+                    <div class="col-3">
+                        <button class="creditCardTestButtons">NS</button>
+                    </div>
+
+                    <div class="col-3">
+
+                    </div>
+                </div>
+
+                @*<div class="row text-center">
             <div class="col-12">
-                <button class="btn btn-success" onclick="shaRequest()" style="margin: 20px; border-radius: 25px;">Send SHA Request</button>
+                <div class="row">
+                    <div class="col-8" style="margin-left: 20px;">
+                        <input type="button" class="form-control" value="Satış - 3D Pay / NS" style="border-radius: 25px;">
+                    </div>
+                    <div class="col-3">
+                        <div class="wrapper">
+                            <input type="radio" name="select" id="option-1" style="vertical-align: middle; border: 5px solid orange;" />
+                            <input type="radio" name="select" id="option-2">
+                            <label for="option-1" class="option option-1">
+                                <div class="dot"></div>
+                                <span class="text-white">3D</span>
+                            </label>
+                            <label for="option-2" class="option option-2">
+                                <div class="dot"></div>
+                                <span class="text-white">NS</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button class="w-50">Satış - 3D Pay / NS</button>
+
+                <input type="checkbox" name="3d" id="123" />
+                    <label for="123" class="text-white">3D</label>
+
+                    <input type="checkbox" name="3d" id="1234" />
+                    <label for="1234" class="text-white">NS</label>
+
+
+            </div>
+        </div>*@
+
+                @*<section class="app">
+
+            <div class="row">
+                <div class="col-12">
+                    <article class="payment3DPay">
+                        <input type="checkbox" id="payment3DPay" />
+                        <div>
+                            <span>
+                                Payment (3D Pay)
+                            </span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <article class="payment3DModel">
+                <input type="checkbox" id="payment3DModel" />
+                <div>
+                    <span>
+                        Payment (3D Model)
+                    </span>
+                </div>
+            </article>
+
+            <div class="wrapper">
+                <input type="radio" name="select" id="option-1" checked>
+                <label for="option-1" class="option option-1">
+                    <div class="dot"></div>
+                    <span>Student</span>
+                </label>
+
+                <input type="radio" name="select" id="option-2">
+                <label for="option-2" class="option option-2">
+                    <div class="dot"></div>
+                    <span>Teacher</span>
+                </label>
+            </div>
+
+            <article class="PreProvisionWithPayment">
+                <input type="checkbox" id="PreProvisionWithPayment" />
+                <div>
+                    <span>
+                        Pre-Provision with Payment
+                    </span>
+                </div>
+            </article>
+
+            <article class="PaymentWithForeignCurrency">
+                <input type="checkbox" id="PaymentWithForeignCurrency" />
+                <div>
+                    <span>
+                        Payment with Foreign Currency
+                    </span>
+                </div>
+            </article>
+
+            <article class="CardStorage">
+                <input type="checkbox" id="CardStorage" />
+                <div>
+                    <span>
+                        Card Storage
+                    </span>
+                </div>
+            </article>
+
+            <article class="PaymentWithCardStorage">
+                <input type="checkbox" id="PaymentWithCardStorage" />
+                <div>
+                    <span>
+                        Payment with Card Storage
+                    </span>
+                </div>
+            </article>
+
+            <article class="PreProvisionWithCardStorage">
+                <input type="checkbox" id="PreProvisionWithCardStorage" />
+                <div>
+                    <span>
+                        Pre-Provision with Card Storage
+                    </span>
+                </div>
+            </article>
+
+            <article class="CardVerification mb-5">
+                <input type="checkbox" id="CardVerification" />
+                <div>
+                    <span>
+                        Card Verification
+                    </span>
+                </div>
+            </article>
+
+            <article class="mb-3">
+                <div>
+                    <a onclick="testCreditCard()">Test</a>
+                </div>
+            </article>
+
+        </section>*@
             </div>
         </div>
-    </div>
 
+    </div>
 
 </div>
 

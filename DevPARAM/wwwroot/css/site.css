@@ -84,10 +84,11 @@ body {
     font-weight: 500;
     color: #8F8F95;
 }
-.creditCardTab:hover {
-    background-color: cadetblue;
-    color: white;
-}
+
+    .creditCardTab:hover {
+        background-color: cadetblue;
+        color: white;
+    }
 
 /* Credit Card Partial View */
 /*--------------------------*/
@@ -260,4 +261,209 @@ body {
 .card:hover .card__back {
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
+}
+
+
+/* ----------------------------- */
+
+.app {
+    max-width: 300px;
+    margin: 0px auto;
+}
+
+    .app i {
+        font-size: 80px;
+        animation-duration: 3s;
+        animation-name: slidein;
+        animation-iteration-count: 1;
+    }
+
+article {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 5px;
+    float: left;
+    border: 2px solid #c67610;
+    border-radius: 25px;
+    box-sizing: border-box;
+    background: #c67610;
+}
+
+    article div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 25px;
+        transition: .5s ease;
+        border-radius: 25px;
+    }
+
+    article a {
+        width: 100% !important;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 25px;
+        transition: .5s ease;
+        border-radius: 25px;
+        cursor: pointer;
+        background-color: lightseagreen;
+        color: white !important;
+        font-weight: 700;
+        border: none !important;
+    }
+
+    article input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100px;
+        opacity: 0;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    article:hover {
+        background-color: #a7ddf8;
+    }
+
+input[type=checkbox]:checked ~ div {
+    background-color: #50bcf2;
+}
+
+.testButton {
+    display: block;
+    margin: 0px auto;
+    width: 100%;
+    padding: 10px 20px;
+    border: 2px solid #50bcf2;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+    .testButton:hover {
+        background-color: #50bcf2;
+    }
+
+.blue-color {
+    color: #50bcf2;
+}
+
+.gray-color {
+    color: #555;
+}
+
+.social i:before {
+    width: 14px;
+    height: 14px;
+    position: fixed;
+    color: #fff;
+    background: #0077B5;
+    padding: 10px;
+    border-radius: 50%;
+    top: 5px;
+    right: 5px;
+}
+
+@keyframes slidein {
+    from {
+        margin-top: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin: 0%;
+        width: 100%;
+    }
+}
+
+/* ----------------------------- */
+
+/* radio button */
+
+/*.wrapper {
+    display: inline-flex;
+    height: 30px;
+    width: 100px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+    .wrapper .option {
+        background-color: #373a3e;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid #c87414;
+        border-radius: 25px;
+    }
+
+        .wrapper .option .dot {
+            height: 20px;
+            width: 20px;
+            background: #d9d9d9;
+            border-radius: 50%;
+            position: relative;
+        }
+
+            .wrapper .option .dot::before {
+                position: absolute;
+                content: "";
+                top: 4px;
+                left: 4px;
+                width: 12px;
+                height: 12px;
+                background: #0069d9;
+                border-radius: 50%;
+                opacity: 0;
+                transform: scale(1.5);
+                transition: all 0.3s ease;
+            }
+
+input[type="radio"] {
+    display: none;
+}
+
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2 {
+    border-color: #c87414;
+    background: #c87414;
+}
+
+    #option-1:checked:checked ~ .option-1 .dot,
+    #option-2:checked:checked ~ .option-2 .dot {
+        background: #fff;
+    }
+
+        #option-1:checked:checked ~ .option-1 .dot::before,
+        #option-2:checked:checked ~ .option-2 .dot::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+    #option-1:checked:checked ~ .option-1 span,
+    #option-2:checked:checked ~ .option-2 span {
+        color: #fff;
+    }*/
+
+/**************************************************************/
+
+/* test credit card buttons */
+
+.creditCardTestButtons {
+    border-radius: 25px;
+    background-color: #c87414;
+    color: white;
 }
