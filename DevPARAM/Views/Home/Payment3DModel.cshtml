@@ -1,0 +1,122 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>3D Secure Processing</title>
+    <link href="https://testvpos.asseco-see.com.tr/mdpaympi/static/mpi.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="main">
+        <div id="content">
+            <div id="order">
+                <h2>3D Secure Processing</h2>
+                <div style="padding-bottom: 15px">
+                    <img src="https://testvpos.asseco-see.com.tr/mdpaympi/static/preloader.gif" alt="Please wait.." />
+                </div>
+                <img src="https://testvpos.asseco-see.com.tr/mdpaympi/static/verifiedbyvisa.png" alt="Verified by VISA" /><iframe id="tdsMmethodTgtFrame" name="tdsMmethodTgtFrame" style="width: 1px; height: 1px; visibility: hidden;" src="javascript:false;" xmlns="http://www.w3.org/1999/xhtml">
+                    <!--.-->
+                </iframe>
+                <form id="tdsMmethodForm" name="tdsMmethodForm" action="https://3ds-acs.test.modirum.com/mdpayacs/3ds-method" method="post" target="tdsMmethodTgtFrame" xmlns="http://www.w3.org/1999/xhtml">
+                    <input id="3DSMethodData" type="hidden" name="3DSMethodData" value="" />
+                    <input id="threeDSMethodData" type="hidden" name="threeDSMethodData" value="" />
+                </form>
+                <script type="text/javascript" xmlns="http://www.w3.org/1999/xhtml">
+                    document.getElementById("tdsMmethodForm").submit();
+                </script>
+                <div id="formdiv">
+                    <script type="text/javascript">
+                        function hideAndSubmitTimed(formid) {
+                            var timer = setTimeout("hideAndSubmit('" + formid + "');", 999);
+                        }
+
+                        function hideAndSubmit(formid) {
+                            var formx = document.getElementById(formid);
+                            if (formx != null) {
+                                formx.style.visibility = "hidden";
+                                formx.submit();
+                            }
+                        }
+                    </script>
+                    <div>
+                        <form id="webform0" name="ddcoll" method="POST" action="https://testvpos.asseco-see.com.tr/mdpaympi/MerchantServer" accept_charset="UTF-8">
+                            <input type="hidden" name="txid" value="13163592" />
+                            <input type="hidden" name="TDS2_Navigator_language" value="" />
+                            <input type="hidden" name="TDS2_Navigator_javaEnabled" value="" />
+                            <input type="hidden" name="TDS2_Navigator_jsEnabled" value="" />
+                            <input type="hidden" name="TDS2_Screen_colorDepth" value="" />
+                            <input type="hidden" name="TDS2_Screen_height" value="" />
+                            <input type="hidden" name="TDS2_Screen_width" value="" />
+                            <input type="hidden" name="TDS2_Screen_PixelDepth" value="" />
+                            <input type="hidden" name="TDS2_TimezoneOffset" value="" />
+                            <input id="digest" type="text" name="digest" value="" readonly="true" style="display:none;" />
+                            <input id="transientData" type="hidden" name="transientData" value="" />
+                            <noscript>
+                                <input type="submit" name="submitBtn" value="Please click here to continue" />
+                            </noscript>
+                        </form>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    hideAndSubmitTimed('webform0');
+                </script>
+                <noscript>
+                    <div align="center">
+                        <b>Javascript is turned off or not supported!</b>
+                        <br />
+                    </div>
+                </noscript>
+                <script type="text/javascript">
+                    function populateData() {
+                        var form = document.getElementById("webform0");
+                        if (form != null) {
+                            if (form["TDS2_Navigator_language"] != null) {
+                                form["TDS2_Navigator_language"].value = (navigator.language || '');
+                            }
+                            if (form["TDS2_Navigator_jsEnabled"] != null) {
+                                // if this scipt runs js is enabled
+                                form["TDS2_Navigator_jsEnabled"].value = "true";
+                            }
+                            if (form["TDS2_Navigator_javaEnabled"] != null) {
+                                form["TDS2_Navigator_javaEnabled"].value = navigator.javaEnabled();
+                            }
+                            if (form["TDS2_Screen_colorDepth"] != null) {
+                                form["TDS2_Screen_colorDepth"].value = screen.colorDepth;
+                            }
+                            if (form["TDS2_Screen_height"] != null) {
+                                form["TDS2_Screen_height"].value = screen.height;
+                            }
+                            if (form["TDS2_Screen_width"] != null) {
+                                form["TDS2_Screen_width"].value = screen.width;
+                            }
+                            if (form["TDS2_Screen_pixelDepth"] != null) {
+                                form["TDS2_Screen_pixelDepth"].value = screen.pixelDepth;
+                            }
+
+                            var timezoneOffsetField = form["TDS2_TimezoneOffset"];
+                            if (timezoneOffsetField != null) {
+                                timezoneOffsetField.value = new Date().getTimezoneOffset();
+                            }
+                        }
+                    }
+                    populateData();
+                </script>
+            </div>
+            <div id="content-footer" />
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+        $("#webform0").submit(function (event) {
+            alert("Handler for .submit() called.");
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

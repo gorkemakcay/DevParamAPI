@@ -3,39 +3,7 @@
 }
 
 <div id="partialArea">
-    @*<div class="row">
-            <div class="col-2">
-                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>Credit Card Number</strong></span>
-                <br />
-                <input type="text" />
-            </div>
-            <div class="col-2">
-                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>Month</strong></span>
-                <br />
-                <input type="text" />
-            </div>
-            <div class="col-2">
-                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>Year</strong></span>
-                <br />
-                <input type="text" />
-            </div>
-            <div class="col-2">
-                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>CVV</strong></span>
-                <br />
-                <input type="text" />
-            </div>
-            <div class="col-2">
-                <span style="color: #8F8F95; font-size: 1em; font-weight:500; margin-right: 50px;"><strong>3D Secure</strong></span>
-                <br />
-                <input type="text" />
-            </div>
-            <div class="col-2 my-auto" align="center">
-                <button class="btn btn-success m-auto" onclick="shaRequest()">Send SHA Request</button>
-            </div>
-        </div>
-        <br />*@
-
-    <div class="row w-50 m-auto text-ce" style="border: 2px solid gray; border-radius: 25px; background-color: #212529;">
+        <div class="row w-50 m-auto text-ce" style="border: 2px solid gray; border-radius: 25px; background-color: #212529;">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
             <div class="card-body" style="display: block; border: 2px solid #c67610; border-radius: 25px; margin: 20px; background-color: #c67610; ">
                 <div class="row">
@@ -163,146 +131,10 @@
 
                 <a class="navbar-brand" asp-controller="Home" asp-action="PaymentSuccess" target="_blank">success test</a>
                 <a class="navbar-brand" asp-controller="Home" asp-action="PaymentFail" target="_blank">fail test</a>
-
-                @*<div class="row text-center">
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-8" style="margin-left: 20px;">
-                        <input type="button" class="form-control" value="Satış - 3D Pay / NS" style="border-radius: 25px;">
-                    </div>
-                    <div class="col-3">
-                        <div class="wrapper">
-                            <input type="radio" name="select" id="option-1" style="vertical-align: middle; border: 5px solid orange;" />
-                            <input type="radio" name="select" id="option-2">
-                            <label for="option-1" class="option option-1">
-                                <div class="dot"></div>
-                                <span class="text-white">3D</span>
-                            </label>
-                            <label for="option-2" class="option option-2">
-                                <div class="dot"></div>
-                                <span class="text-white">NS</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <button class="w-50">Satış - 3D Pay / NS</button>
-
-                <input type="checkbox" name="3d" id="123" />
-                    <label for="123" class="text-white">3D</label>
-
-                    <input type="checkbox" name="3d" id="1234" />
-                    <label for="1234" class="text-white">NS</label>
-
-
-            </div>
-        </div>*@
-
-                @*<section class="app">
-
-            <div class="row">
-                <div class="col-12">
-                    <article class="payment3DPay">
-                        <input type="checkbox" id="payment3DPay" />
-                        <div>
-                            <span>
-                                Payment (3D Pay)
-                            </span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <article class="payment3DModel">
-                <input type="checkbox" id="payment3DModel" />
-                <div>
-                    <span>
-                        Payment (3D Model)
-                    </span>
-                </div>
-            </article>
-
-            <div class="wrapper">
-                <input type="radio" name="select" id="option-1" checked>
-                <label for="option-1" class="option option-1">
-                    <div class="dot"></div>
-                    <span>Student</span>
-                </label>
-
-                <input type="radio" name="select" id="option-2">
-                <label for="option-2" class="option option-2">
-                    <div class="dot"></div>
-                    <span>Teacher</span>
-                </label>
-            </div>
-
-            <article class="PreProvisionWithPayment">
-                <input type="checkbox" id="PreProvisionWithPayment" />
-                <div>
-                    <span>
-                        Pre-Provision with Payment
-                    </span>
-                </div>
-            </article>
-
-            <article class="PaymentWithForeignCurrency">
-                <input type="checkbox" id="PaymentWithForeignCurrency" />
-                <div>
-                    <span>
-                        Payment with Foreign Currency
-                    </span>
-                </div>
-            </article>
-
-            <article class="CardStorage">
-                <input type="checkbox" id="CardStorage" />
-                <div>
-                    <span>
-                        Card Storage
-                    </span>
-                </div>
-            </article>
-
-            <article class="PaymentWithCardStorage">
-                <input type="checkbox" id="PaymentWithCardStorage" />
-                <div>
-                    <span>
-                        Payment with Card Storage
-                    </span>
-                </div>
-            </article>
-
-            <article class="PreProvisionWithCardStorage">
-                <input type="checkbox" id="PreProvisionWithCardStorage" />
-                <div>
-                    <span>
-                        Pre-Provision with Card Storage
-                    </span>
-                </div>
-            </article>
-
-            <article class="CardVerification mb-5">
-                <input type="checkbox" id="CardVerification" />
-                <div>
-                    <span>
-                        Card Verification
-                    </span>
-                </div>
-            </article>
-
-            <article class="mb-3">
-                <div>
-                    <a onclick="testCreditCard()">Test</a>
-                </div>
-            </article>
-
-        </section>*@
             </div>
         </div>
-
     </div>
-
 </div>
-
 
 @section Scripts {
     <script src="~/js/index.js"></script>

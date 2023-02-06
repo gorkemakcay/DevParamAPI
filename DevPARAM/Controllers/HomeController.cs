@@ -49,6 +49,11 @@ namespace DevPARAM.Controllers
             return View();
         }
 
+        public IActionResult Payment3DModel()
+        {
+            return View();
+        }
+
         public string SHARequest(string destinationUrl, string requestXml)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(destinationUrl);
