@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div id="partialArea">
+@*<div id="partialArea">
         <div class="row w-50 m-auto text-ce" style="border: 2px solid gray; border-radius: 25px; background-color: #212529;">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
             <div class="card-body" style="display: block; border: 2px solid #c67610; border-radius: 25px; margin: 20px; background-color: #c67610; ">
@@ -126,6 +126,118 @@
 
                     <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
                         <span id="paymentErrorArea" class="text-white" style="font-weight: 300;"></span>
+                    </div>
+                </div>
+
+                <a class="navbar-brand" asp-controller="Home" asp-action="PaymentSuccess" target="_blank">success test</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="PaymentFail" target="_blank">fail test</a>
+            </div>
+        </div>
+    </div>
+</div>*@
+<br />
+<div id="partialArea">
+    <div class="row w-50 m-auto text-ce" style="border: 2px solid gray; border-radius: 25px; background-color: #212529;">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="card-body" style="display: block; border: 2px solid #c67610; border-radius: 25px; margin: 20px; background-color: #c67610; ">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <select id="selectCreditCard" class="form-control" style="border-radius: 25px;">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body" style="display: block; padding-left: 0px; padding-right: 0px; padding-left: 20px; font-weight: 700;">
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">Ödeme</div>
+
+                    <div class="col-3">
+                        <input type="button" class="creditCardTestButtons" value="3D Pay" onclick="test('payment', '3DPay');" />
+                        <input type="button" class="creditCardTestButtons" value="3D Model" onclick="test('payment', '3DModel');" style="background-color: gray !important" disabled />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('payment', 'NS');" />
+                    </div>
+
+                    <div class="col-1" id="paymentLoadSpinnerArea">
+
+                    </div>
+
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="paymentErrorArea" class="text-white" style="font-weight: 300;"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">Ön Provizyon</div>
+
+                    <div class="col-3">
+                        <input type="button" class="creditCardTestButtons" value="3D" onclick="test('preProvision', '3D');" style="background-color: gray !important" disabled />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('preProvision', 'NS');" />
+                    </div>
+
+                    <div class="col-1" id="preProvisionLoadSpinnerArea">
+
+                    </div>
+
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="preProvisionErrorArea" class="text-white" style="font-weight: 300;"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">Döviz İle Ödeme</div>
+
+                    <div class="col-3">
+                        <input type="button" class="creditCardTestButtons" value="3D" onclick="test('paymentWithForeignCurrency', '3D');" />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('paymentWithForeignCurrency', 'NS');" />
+                    </div>
+
+                    <div class="col-1" id="paymentWithForeignCurrencyLoadSpinnerArea">
+
+                    </div>
+
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="paymentWithForeignCurrencyErrorArea" class="text-white" style="font-weight: 300;"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">Saklı Kart İle Ödeme</div>
+
+                    <div class="col-3">
+                        <input type="button" class="creditCardTestButtons" value="3D" onclick="test('paymentWithCardStorage', '3D');" />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('paymentWithCardStorage', 'NS');" />
+                    </div>
+
+                    <div class="col-1" id="paymentWithCardStorageLoadSpinnerArea">
+
+                    </div>
+
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="paymentWithCardStorageErrorArea" class="text-white" style="font-weight: 300;"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-3 text-white">Saklı Kart İle Ön Provizyon</div>
+
+                    <div class="col-3">
+                        <input type="button" class="creditCardTestButtons" value="3D" onclick="test('preProvisionWithCardStorage', '3D');" />
+                        <input type="button" class="creditCardTestButtons" value="NS" onclick="test('preProvisionWithCardStorage', 'NS');" />
+                    </div>
+
+                    <div class="col-1" id="preProvisionWithCardStorageLoadSpinnerArea">
+
+                    </div>
+
+                    <div class="col-5" style="padding-left: 0px; padding-right: 50px;">
+                        <span id="preProvisionWithCardStorageErrorArea" class="text-white" style="font-weight: 300;"></span>
                     </div>
                 </div>
 

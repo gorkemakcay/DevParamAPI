@@ -1,0 +1,79 @@
+﻿
+<div class="row w-25 m-auto" style="border-radius: 25px; background-color: lightcoral">
+    <div class="col-12">
+        <div class="card-body" style="display: block;">
+
+            <div class="row mb-3">
+                <div class="col-6 form-group">
+                    <label for="addCardNumber" style="color: white; font-size: 1em; font-weight:500; margin-left: 10px;">Card Number</label>
+                    <input id="addCardNumber" type="text" class="form-control" style="border-radius: 25px;">
+                </div>
+
+                <div class="col-6 form-group">
+                    <label for="addCardSelectBank" style="color: white; font-size: 1em; font-weight:500; margin-left: 10px;">Select Bank</label>
+                    <select id="addCardSelectBank" class="form-control w-75" style="border-radius: 25px;">
+                        <option value="null" hidden></option>
+                        <option value="ZiraatBankasi">Ziraat Bankası</option>
+                        <option value="FinansBank">Finans Bank</option>
+                        <option value="Akbank">Akbank</option>
+                        <option value="IsBankasi">İş Bankası</option>
+                        <option value="Halkbank">Halkbank</option>
+                        <option value="Denizbank">Denizbank</option>
+                        <option value="YapiKredi">Yapı Kredi</option>
+                        <option value="YabanciKart">Yabancı Kart</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4 form-group">
+                    <label for="addCardDueMonth" style="color: white; font-size: 1em; font-weight:500; margin-left: 10px;">Due Month</label>
+                    <select id="addCardDueMonth" class="form-control w-75" style="border-radius: 25px;">
+                        <option value="null" hidden></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+
+                <div class="col-4 form-group">
+                    <label for="addCardDueYear" style="color: white; font-size: 1em; font-weight:500; margin-left: 10px;">Due Year</label>
+                    <select id="addCardDueYear" class="form-control w-75" style="border-radius: 25px;">
+                        <option value="null" hidden></option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                    </select>
+                </div>
+
+                <div class="col-4 form-group">
+                    <label for="addCardCVV" style="color: white; font-size: 1em; font-weight: 500; margin-left: 10px;">CVV</label>
+                    <input type="text" id="addCardCVV" class="form-control w-75" style="border-radius: 25px; text-align: center !important;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div class="row w-25 m-auto" style="border-radius: 25px; background-color: lightcoral">
+    <input type="button" value="Save" class="my-2 text-white" style="width: 100%; background: none; border: none; font-size: 1.2em; font-weight: 600;" onclick="addNewCard($('#addCardSelectBank').val())" />
+</div>

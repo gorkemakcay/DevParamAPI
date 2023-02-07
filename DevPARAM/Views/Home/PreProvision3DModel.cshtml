@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <title> Payment MPI Service </title>
+</head>
+<body>
+    <form method="post" action="./Default.aspx" id="step1Form">
+        <div class="aspNetHidden">
+            <input type="hidden" name="PaReq" id="PaReq" value="eJxVUm1vgjAQ/ivEzwttKQUxZxM3SMYHjFH2gY+sNsoyQEuZL79+raBuTdvcc3e9l+cK+V5JGW+k6JXkkMmuK3fSqbbzSUCnhHgRpSykAQ4pxRMOq8VaHjn8SNVVbcOJi10P0B2a90rsy0ZzKMXxNV1yRn0WUEAjhFqqNOZ4yigeVsSiENCghqasJaexkyeb3PkoEifdFMk6BXQzgGj7RqsLDyOT8w6gV998r/VhhtDpdHKPzaeWnXZFWwOyNkDPqla9lToT61xtefa1uGRXc+LivMwTssyFl1135yxP54CsB2xLLbmHPYo9HDiEzcxmpuCbHsraFsHJC8ZOvi5Mm4MCDjbPYrRiDOivAgzXSjbiwiM/Mo3cEcjzoW2k8TDtPWRAz6Lf3i2xQhuumOGVBI/bN0PyGSbEt1zfPGy4yhDkBWSIZwEgGwONY0TjvI307x/8AjBfqjM=" />
+            <input type="hidden" name="TermUrl" id="TermUrl" value="https://vpostest.qnbfinansbank.com/Gateway/Mpi/FromMPIToGateway.aspx?AcctId=b07d7b2f780b439b88a1a9692611cc9a" />
+            <input type="hidden" name="MD" id="MD" value="UGF5bWVudFZQT1NEYXRhPTc5ODBCOUNCRjJDQjYzQzNENEIyMkYxQjI4RTE1RUQw" />
+        </div>
+
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script type='text/javascript'>
+            //var frm = document.getElementById('step1Form');
+            //frm.action = 'https://vpostest.qnbfinansbank.com/PayforACSSimulator/Default.aspx';
+            //frm.method = "POST";
+            //frm.submit();
+
+            $('#step1Form')
+                .ajaxForm({
+                    type: 'POST',
+                    url: 'https://vpostest.qnbfinansbank.com/PayforACSSimulator/Default.aspx',
+                    success: function (response) {
+                        alert("The server says: " + response);
+                        console.log(response);
+                    }
+                })
+                ;
+        </script>
+        <div class="aspNetHidden">
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BFED9D85" />
+        </div>
+    </form>
+</body>
+</html>

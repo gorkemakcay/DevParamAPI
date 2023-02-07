@@ -13,5 +13,15 @@ namespace DevPARAM.Controllers
         {
             return PartialView("CreditCardPartial");
         }
+
+        public IActionResult GetTestAllCreditCardsPartialView()
+        {
+            return PartialView("TestAllCreditCardsPartial");
+        }
+
+        public IActionResult GetAddNewCreditCardPartialView()
+        {
+            return PartialView("AddNewCreditCardPartial");
+        }
     }
 }

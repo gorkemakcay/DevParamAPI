@@ -54,6 +54,11 @@ namespace DevPARAM.Controllers
             return View();
         }
 
+        public IActionResult PreProvision3DModel()
+        {
+            return View();
+        }
+
         public string SHARequest(string destinationUrl, string requestXml)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(destinationUrl);
@@ -77,7 +82,6 @@ namespace DevPARAM.Controllers
                 //firstIndex = firstIndex + 15;
                 //int lastIndex = responseStr.LastIndexOf("</SHA2B64Result>");
                 //string result = responseStr.Substring(firstIndex, lastIndex - firstIndex);
-
                 //return result;
             }
             return null;
