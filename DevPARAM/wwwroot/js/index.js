@@ -208,11 +208,21 @@ $('#selectCreditCard').on('change', function () {
 
 // #region Test Credit Card with All Payment Methods
 function test(method, secureType) {
-    // Get Credit Card Number, Month, Year, CVV from User to variable
-    var creditCardNumber = cardModel.CardNumber;
-    var creditCardMonth = cardModel.DueMonth;
-    var creditCardYear = cardModel.DueYear;
-    var creditCardCVV = cardModel.CVV;
+
+    if ($('#cardNumber').val() != '' && $('#cardMonth').val() != '' && $('#cardYear').val() != '' && $('#cardCVV').val() != '') {
+        var creditCardNumber = $('#cardNumber').val();
+        var creditCardMonth = $('#cardMonth').val();
+        var creditCardYear = $('#cardYear').val();
+        var creditCardCVV = $('#cardCVV').val();
+    }
+    else {
+        // Get Credit Card Number, Month, Year, CVV from User to variable
+        var creditCardNumber = cardModel.CardNumber;
+        var creditCardMonth = cardModel.DueMonth;
+        var creditCardYear = cardModel.DueYear;
+        var creditCardCVV = cardModel.CVV;
+    }
+
 
     // Ajax Post Destination Url
     var destinationUrl = "https://test-dmz.param.com.tr/turkpos.ws/service_turkpos_test.asmx";
